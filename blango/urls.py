@@ -17,11 +17,20 @@ from django.contrib import admin
 from django.urls import path
 import blog.views
 
+# Debugger configurations
+import debug_toolbar
+from django.conf import settings
+from django.urls import include
+
 urlpatterns = [
     path("", blog.views.index),
     path("post/<slug>/", blog.views.post_detail, name="blog-post-detail"),
     path('admin/', admin.site.urls),
+    path('ip/', blog.views.get_ip)
 ]
 
-from django.conf import settings
-print(f"Time zone: {settings.TIME_ZONE}")
+if settings.DEBUG:
+    print("Debug Mode.")
+    urlpatterns += [
+        path("__debug__/", include(debug_toolbar.urls)),
+    ]
