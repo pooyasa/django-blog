@@ -5,9 +5,7 @@ from django.utils.safestring import mark_safe
 from django.utils.html import format_html
 from blog.models import Post
 
-
 user_model = get_user_model()
-
 register = template.Library()
 
 @register.filter
