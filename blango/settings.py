@@ -37,6 +37,7 @@ class Dev(Configuration):
 
     INSTALLED_APPS = [
         'django.contrib.admin',
+        'django_registration',
         'django.contrib.auth',
         'django.contrib.contenttypes',
         'django.contrib.sessions',
@@ -174,7 +175,9 @@ class Dev(Configuration):
     }
 
     AUTH_USER_MODEL = "blango_auth.User"
-
+    ACCOUNT_ACTIVATION_DAYS = 7
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    
 class Prod(Dev):
     DEBUG = False
     SECRET_KEY = values.SecretValue()
