@@ -18,7 +18,6 @@ from django.utils import timezone
 from datetime import timedelta
 from django.http import Http404
 from blog.api.filters import PostFilterSet
-
 from rest_framework.exceptions import PermissionDenied
 
 class PostViewSet(viewsets.ModelViewSet):
